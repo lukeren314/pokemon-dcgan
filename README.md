@@ -1,5 +1,3 @@
-# pokemon-dcgan
-
 # Pokemon DCGAN
 
 Welcome to my Pokemon Sprite Generator!
