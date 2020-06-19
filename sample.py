@@ -11,4 +11,4 @@ if __name__ == '__main__':
         os.mkdir(SAMPLES_PATH)
     for i in range(NUM_TO_GENERATE):
         sample = sampler.sample()
-        sample.save(os.path.join(SAMPLES_PATH, f'${i}.png'))
+        sample.save(os.path.join(SAMPLES_PATH, f'{i}.png'))

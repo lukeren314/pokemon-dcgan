@@ -30,7 +30,7 @@ class Sampler:
         tf.train.Checkpoint(generator=self._generator).restore(tf.train.latest_checkpoint(
             checkpoint_path)).expect_partial()
 
-    def sample(self, size: (int, int)=None, clean: bool=True, mean: float=0.0, stddev: float=1.0, threshold: int=225) -> Image:
+    def sample(self, size: (int, int) = None, clean: bool = True, mean: float = 0.0, stddev: float = 1.0, threshold: int = 215) -> Image:
         noise = tf.random.normal([1, 100], mean=mean, stddev=stddev)
         prediction = self._generator(noise, training=False)
         image_tensor = prediction[0, :, :, :] * 127.5 + 127.5
@@ -69,7 +69,8 @@ def _get_dataset(data_path: str):
 def _convert_images_to_tensors(data_path: str):
     image_tensors = []
     for image_path in os.listdir(data_path):
-        image_tensor = _convert_to_tensor(image_path)
+        full_path = os.path.join(data_path, image_path)
+        image_tensor = _convert_to_tensor(full_path)
         image_tensors.append(image_tensor)
     return image_tensors
 
