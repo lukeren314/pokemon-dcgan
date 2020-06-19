@@ -1,6 +1,9 @@
-samples/
-new_samples
+*.png
+*.json
+.vs
 .vscode
 __pycache__
-checkpoints/
-env/
+checkpoints
+samples
+images
+env
